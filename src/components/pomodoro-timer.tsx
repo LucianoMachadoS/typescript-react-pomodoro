@@ -69,7 +69,7 @@ export function PomodoroTimer(props: PomodoroTimerProps) {
 
     if (working && cyclesQtdManager.length > 0) {
       configureRest(false);
-      setCyclesQtdManager(new Array(props.cycles - 1).fill(true));
+      cyclesQtdManager.pop();
     } else if (working && cyclesQtdManager.length <= 0) {
       configureRest(true);
       setCyclesQtdManager(new Array(props.cycles - 1).fill(true));
@@ -86,10 +86,10 @@ export function PomodoroTimer(props: PomodoroTimerProps) {
       <Timer mainTime={mainTime} />
       <div className="controls">
         <Button text="Work" onClick={() => configureWork()}/>
-        <Button text="teste" onClick={() => configureRest(false)}/>
+        <Button text="Rest" onClick={() => configureRest(false)}/>
         <Button
         className={!working && !resting ? 'hidden' : ''}
-        text={timeCounting ? 'Pause' : 'Play'} onClick={() => setTimeCounting(false)}/>
+        text={timeCounting ? 'Pause' : 'Play'} onClick={() => setTimeCounting(!timeCounting)}/>
       </div>
 
       <div className="details">
