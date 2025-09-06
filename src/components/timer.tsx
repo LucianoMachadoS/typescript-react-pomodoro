@@ -1,4 +1,4 @@
-import { secondsToTime } from "../utils/seconds-to-time";
+import { secondsToMinutes } from "../utils/seconds-to-minutes";
 
 interface ButtonProps {
   mainTime: number
@@ -6,6 +6,6 @@ interface ButtonProps {
 
 export function Timer (props: ButtonProps) {
   return (
-    <div className="timer">{secondsToTime(props.mainTime)}</div>
+    <div className="timer">{secondsToMinutes(props.mainTime)}</div>
   );
 }
